@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <script>
+        function checkAuthentication(){
+          if( !sessionStorage.getItem('authenticated') ) {
+            //redirect to login page
+
+            window.location.href = 'login.html';
+          } 
+        }
+
+        checkAuthentication();
+
+    </script>
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap-theme.min.css">
+    
+    <link href="CSS/user.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="home.html">POSTBOX
+          <span class="glyphicon glyphicon-envelope"></span></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#" id="logout" class="glyphicon glyphicon-off"></a></li>
+          </ul>
+
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+
+    <div class="container col-md-offset-1 col-md-10">
+      <div class="row userinfo">
+        <!-- html will be appended here dynamically -->
+      </div>
+
+      <div class="row usermessages">
+        <div class="buildMessage">
+          <textarea class="form-control" placeholder="Type your message here .."></textarea>
+          
+          <a href="#" class="btn btn-large btn-primary"><span class="glyphicon glyphicon-pencil"></span>POST</a>
+          
+        </div>
+
+        <div class="showMessages">
+          <!-- html will be appended here dynamically -->
+        </div> 
+      </div>
+
+    </div>
+
+    <script type="text/x-jquery-tmpl" id="userinfoTemplate">  
+      <div class="col-md-12">
+      <div class="well well-sm">
+        <div class="row">
+
+          <div class="col-md-4">
+            <img src="http://placehold.it/200x200" alt="" class="img-rounded img-responsive" />
+          </div>
+
+          <div class="col-md-8">
+            <h4>${firstname} ${lastname}</h4>
+            
+            <span>
+              <cite title="Sex">
+                {{if sex == 0}}
+                    Male
+                {{else}}
+                    Female
+                {{/if}}
+              </cite>
+            </span>
+
+            <p>
+              <i class="glyphicon glyphicon-envelope"></i>${emailID} <br />
+              <i class="glyphicon glyphicon-gift"></i>${DOB}
+            </p>
+
+            <!-- Split button -->
+            <div class="btn-group">
+              <button type="button" class="btn btn-primary">Social</button>
+
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                <span class="caret"></span><span class="sr-only">Social</span>
+              </button>
+
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Google +</a></li>
+                <li><a href="#">Facebook</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Github</a></li>
+              </ul>
+
+            </div>
+          </div>
+
+        </div>
+       </div>
+       </div> 
+    </script>
+
+    <script type="text/x-jquery-tmpl" id="messageWrapperTemplate">
+      {{each listgroup}}  
+        <div class="messageWrapper">
+            <h4>Received from ${firstname} on ${postdate}</h4>
+            <p>${text}</p>
+        </div>
+      {{/each}}  
+    </script>
+
+    <script src="JS/jquery.min.js"></script>
+    <script src="JS/jquery.tmpl.min.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/user.js"></script>
+
+  </body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+
+    <script>
+        function checkAuthentication(){
+          if( !sessionStorage.getItem('authenticated') ) {
+            //redirect to login page
+
+            window.location.href = 'login.html';
+          } 
+        }
+
+        checkAuthentication();
+
+    </script>
+
+    <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap-theme.min.css">
+    
+    <link href="CSS/home.css" rel="stylesheet">
+
+  </head>
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+        <div class="council col-md-offset-3 col-md-3">
+          <ul>
+            <li><h4><a href="tabs.html?subParam=1000">Cultural</a></h4></li>
+            <li><h4><a href="tabs.html?subParam=technical">Technical</a></h4></li>
+            <li><h4><a href="tabs.html?subParam=sports">Sports</a></h4></li>
+          </ul>
+        </div>
+        <div class="courses col-md-3">
+          <ul>
+            <li><h4><a href="#">Computer Science</a></h4></li>
+            <li><h4><a href="#">Electronics & Communication</a></h4></li>
+            <li><h4><a href="#">Mechanical</a></h4></li>
+          </ul>
+        </div>        
+      </div>
+      <div class="row">
+        <div class="personal col-md-offset-3 col-md-3">
+          <ul>
+            <li><h4><a href="#">Inbox</a></h4></li>
+            <li><h4><a href="#">Quick look</a></h4></li>
+          </ul>
+        </div>
+        <div class="others col-md-3">
+          <ul>
+            <li><h4><a href="#">Option 1</a></h4></li>
+            <li><h4><a href="#">Option 2</a></h4></li>
+            <li><h4><a href="#">Option 3</a></h4></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="JS/jquery.min.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/home.js"></script>
+
+  </body>
+</html>
