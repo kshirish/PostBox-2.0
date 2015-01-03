@@ -61,8 +61,6 @@ $(document).ready(function() {
 			}
 		}
 
-		console.log(response);
-
 		$("#clubNamesTemplate").tmpl(response).appendTo("#clubNames");
 
 	    $("div.tab-menu>div.list-group>a").on("click", function(e) {
@@ -86,6 +84,35 @@ $(document).ready(function() {
 		}
 
 		checkUser();
+
+		$('#add').click(function(){
+			$.ajax({
+			  url: 'PHP/adddel.php',
+			  data: 'userID='+userID+'&'+'subParam='+1+'&'+'subgroupname='+subgroupname+'&',
+			  success: function(data){console.log(data);},
+			  //dataType: 'json'
+			});		
+		});
+
+		$('#delete').click(function(){
+			$.ajax({
+			  url: 'PHP/adddel.php',
+			  data: 'userID='+userID+'&'+'subParam='+0+'&'+'subgroupname='+subgroupname+'&',
+			  success: function(data){console.log(data);},
+			  //dataType: 'json'
+			});		
+		});
+
+		$('#post').click(function(){
+			var text = $($(this).parent()[0]).find('textarea').val();
+				
+			$.ajax({
+			  url: 'PHP/post.php',
+			  data: 'userID='+userID+'&'+'subParam='+0+'&'+'text='+text+'&'+'subgroupname='+subgroupname+'&',
+			  success: function(data){console.log(data);},
+			  //dataType: 'json'
+			});		
+		});
 	}
 
 	function disableComponents(data){

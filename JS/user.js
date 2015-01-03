@@ -13,6 +13,37 @@ $(document).ready(function() {
 
 		$("#messageWrapperTemplate").tmpl(messages).appendTo($(".showMessages"));
 
+		$('#post').click(function(){
+			var text = $($(this).parent()[0]).find('textarea').val()
+			,	t = text.indexOf('@');
+			,	toID;
+
+			if(t === -1) {
+
+				console.log('error');
+				
+			} else {
+
+				for(i = t+1; i < text.length ; i++) {
+
+					if(text[i] === ' '){
+						l = i;
+						break;
+					}
+				}	
+
+				toID = text.substring(t+1, l);
+
+				$.ajax({
+				  url: 'PHP/post.php',
+				  data: 'fromID='+userID+'&'+'toID='+toID+'&'+'subParam='+1+'&'+'text='+text+'&',
+				  success: function(data){console.log(data);},
+				  //dataType: 'json'
+				});		
+
+			}
+		});
+
 	}
 
 	function getAllUserData(){

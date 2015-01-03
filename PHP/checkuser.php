@@ -56,7 +56,7 @@
 
 			} else if ( $level === "2" ) {
 
-				$query = 'SELECT subgroupadmin FROM subgroups WHERE subgroupname = '.$_GET['clubname'].'';
+				$query = 'SELECT subgroupadmin FROM subgroups WHERE subgroupname = '.$_GET['subgroupname'].'';
 
 				$result = mysqli_query($conn, $query);
 
