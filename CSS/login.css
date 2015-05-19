@@ -3,10 +3,18 @@
 }
 
 body {
-  padding-top: 120px;
+  padding-top: 50px;
   padding-bottom: 40px; 
   height: 700px;
   background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+}
+body > h2 {
+  color: white;
+  text-align: center;
+  width: 50%;
+  margin: 0 auto;
+  font-size: 4em;
+  text-shadow: 3px 2px 2px #1A1414;
 }
 .btn 
 {
